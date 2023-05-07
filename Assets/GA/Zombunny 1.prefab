@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 3121897479602991260}
   - component: {fileID: 362492137525092724}
   - component: {fileID: 362492137525092715}
-  - component: {fileID: 977448573837135777}
+  - component: {fileID: 3386513592641948318}
   m_Layer: 6
   m_Name: Zombunny 1
   m_TagString: Untagged
@@ -173,7 +173,7 @@ CapsuleCollider:
   m_Height: 1.55
   m_Direction: 1
   m_Center: {x: 0, y: 0.84, z: 0}
---- !u!114 &977448573837135777
+--- !u!114 &3386513592641948318
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,17 +186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eyes: {fileID: 5527096308885147186}
-  distanceTravelled: 0
-  rules:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
 --- !u!1 &5527096308885147186
 GameObject:
   m_ObjectHideFlags: 0

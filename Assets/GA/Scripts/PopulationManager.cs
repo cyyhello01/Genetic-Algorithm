@@ -35,6 +35,7 @@ public class PopulationManager : MonoBehaviour {
 			int starti = Random.Range(0, startingPos.Length);
 			GameObject b = Instantiate(botPrefab, startingPos[starti].transform.position, this.transform.rotation);
 			b.transform.Rotate(0, Mathf.Round(Random.Range(-90, 91) / 90) * 90, 0);
+			b.GetComponent<Brain>().Init(); //agent got the brain to have random angles for going forward
 			population.Add(b);
 		}
 		Time.timeScale = timeScale;
