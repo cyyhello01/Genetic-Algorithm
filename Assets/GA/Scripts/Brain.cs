@@ -5,7 +5,7 @@ public class Brain : MonoBehaviour
 {
     public DNA dna;
     public GameObject eyes; //point the agent can see if something is infront
-    bool seeWall;
+    (bool left, bool forward, bool right) seeWall;
     public float eggsFound = 0;
     LayerMask ignore = 6; //make sure the raycast will not hit any other agent(in layer 6)
     bool canMove = false; //if got a wall infront, will not transform in fixedUpdate
@@ -26,18 +26,39 @@ public class Brain : MonoBehaviour
 
     void Update()
     {
-        seeWall = false;
+        seeWall = (false, false, false);
+        bool left = false;
+        bool front = false;
+        bool right = false;
         canMove = true;
         RaycastHit hit;
         Debug.DrawRay(eyes.transform.position, eyes.transform.forward * 1f, Color.red);
-        if (Physics.SphereCast(eyes.transform.position, 0.1f, eyes.transform.forward, out hit, 1f, ~ignore)) //use spherecast so that it has some volume(broader), if it is a single ray, the detection is very precise
+        //use spherecast so that it has some volume(broader), if it is a single ray, the detection is very precise
+        if (Physics.SphereCast(eyes.transform.position, 0.1f, eyes.transform.forward, out hit, 1f, ~ignore)) //front wall
         {
             if (hit.collider.gameObject.CompareTag("wall"))
             {
-                seeWall = true;
+                front = true;
                 canMove = false;
             }
         }
+        if (Physics.SphereCast(eyes.transform.position, 0.1f, eyes.transform.right, out hit, 1f, ~ignore)) //right wall
+        {
+            if (hit.collider.gameObject.CompareTag("wall"))
+            {
+                right = true;
+                
+            }
+        }
+        if (Physics.SphereCast(eyes.transform.position, 0.1f, -eyes.transform.right, out hit, 1f, ~ignore)) //left wall
+        {
+            if (hit.collider.gameObject.CompareTag("wall"))
+            {
+                left = true;
+
+            }
+        }
+        seeWall = (left, front, right);
     }
 
 

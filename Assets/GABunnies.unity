@@ -843,7 +843,7 @@ MonoBehaviour:
   - {fileID: 1050072322}
   - {fileID: 1814038232}
   - {fileID: 536686468}
-  populationSize: 5
+  populationSize: 10
   trialTime: 10
   timeScale: 1
   maze: {fileID: 1496461775}
